@@ -1,0 +1,6 @@
+{
+  "name": "Custom Chat UI",
+  "description": "A production-grade, distinctive custom chat interface with local storage persistence, rich markdown rendering, and auto-scrolling.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

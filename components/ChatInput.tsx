@@ -60,15 +60,15 @@ export const ChatInput: React.FC<ChatInputProps> = ({
     <div className="w-full space-y-3">
       {/* Suggestion Chips (when input is empty) */}
       {!input && (
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 px-1 no-scrollbar sm:flex-wrap">
+        <div className="flex flex-wrap items-center gap-1.5 pb-1 px-1">
           <span
             className={cn(
               'flex shrink-0 items-center gap-1 text-[11px] font-medium uppercase tracking-wider',
-              isDark ? 'text-zinc-300' : 'text-slate-600'
+              isDark ? 'text-zinc-400' : 'text-slate-500'
             )}
           >
             <Sparkles className="h-3 w-3 text-indigo-500" />
-            <span className="hidden sm:inline">Quick Prompts:</span>
+            <span>Topics:</span>
           </span>
           {QUICK_PROMPTS.map((prompt, idx) => (
             <button
@@ -78,13 +78,13 @@ export const ChatInput: React.FC<ChatInputProps> = ({
               disabled={isGenerating}
               onClick={() => onSuggestionSelect?.(prompt)}
               className={cn(
-                'shrink-0 whitespace-nowrap rounded-lg border px-2.5 py-1 text-xs transition-all disabled:opacity-50',
+                'rounded-lg border px-2.5 py-1 text-xs transition-all disabled:opacity-50 text-left',
                 isDark
                   ? 'border-zinc-800 bg-zinc-900/60 text-zinc-300 hover:border-zinc-700 hover:bg-zinc-800 hover:text-zinc-100'
                   : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-100 hover:text-slate-900 shadow-xs'
               )}
             >
-              {prompt.length > 40 ? `${prompt.slice(0, 40)}...` : prompt}
+              {prompt.length > 35 ? `${prompt.slice(0, 35)}...` : prompt}
             </button>
           ))}
         </div>

@@ -9,3 +9,32 @@
     scrollbar-width: none;
   }
 }
+
+/* Global scrollbar refinement & mobile roller prevention */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Ensure code blocks wrap smoothly on all screen sizes and never show horizontal rollers */
+pre, code {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Hide horizontal scrollbars across all components while allowing vertical flow */
+pre::-webkit-scrollbar,
+.code-container::-webkit-scrollbar {
+  height: 0px;
+  display: none;
+}
+
+pre, .code-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

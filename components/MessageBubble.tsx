@@ -189,9 +189,9 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
                               )}
                             </button>
                           </div>
-                          {/* Code Body */}
-                          <pre className="w-full max-w-full overflow-x-auto p-3 sm:p-4 font-mono text-xs sm:text-[13px] leading-relaxed text-emerald-200/90 selection:bg-emerald-500/30">
-                            <code className={className} {...props}>
+                          {/* Code Body - Auto wraps code smoothly on mobile with no roller scrollbars */}
+                          <pre className="w-full max-w-full overflow-hidden p-3 sm:p-4 font-mono text-xs sm:text-[13px] leading-relaxed text-emerald-200/90 selection:bg-emerald-500/30 whitespace-pre-wrap break-words [overflow-wrap:anywhere] no-scrollbar">
+                            <code className={cn(className, 'whitespace-pre-wrap break-words [overflow-wrap:anywhere]')} {...props}>
                               {children}
                             </code>
                           </pre>
@@ -202,7 +202,7 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
                     return (
                       <code
                         className={cn(
-                          'rounded-md px-1.5 py-0.5 font-mono text-[11px] sm:text-[12px] font-semibold break-all sm:break-normal',
+                          'rounded-md px-1.5 py-0.5 font-mono text-[11px] sm:text-[12px] font-semibold whitespace-pre-wrap break-words [overflow-wrap:anywhere]',
                           isDark
                             ? 'border border-zinc-700/60 bg-zinc-800/80 text-emerald-300'
                             : 'border border-slate-200 bg-slate-100 text-emerald-700'
@@ -217,11 +217,11 @@ export const MessageBubble: React.FC<MessageBubbleProps> = ({
                     return (
                       <div
                         className={cn(
-                          'my-2.5 sm:my-3 w-full min-w-0 max-w-full overflow-x-auto rounded-lg border',
+                          'my-2.5 sm:my-3 w-full min-w-0 max-w-full overflow-x-auto no-scrollbar rounded-lg border',
                           isDark ? 'border-zinc-800' : 'border-slate-200'
                         )}
                       >
-                        <table className="w-full min-w-[280px] text-left text-xs border-collapse">
+                        <table className="w-full text-left text-xs border-collapse">
                           {children}
                         </table>
                       </div>
